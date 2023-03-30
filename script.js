@@ -14,6 +14,13 @@ var specialCharactersPrompt = false;
 var randomPassword = "";
 
 function generatePassword() {
+  passwordLength = 20;
+  availableCharacters = [];
+  uppercasePrompt = false;
+  lowercasePrompt = false;
+  numbersPrompt = false;
+  specialCharactersPrompt = false;
+  randomPassword = "";
   passwordLength = prompt("How many characters do you want your password to be? (Min: 8, Max: 128)");
   if ((7 > passwordLength) || (129 < passwordLength)) {alert("Character length must be 8 or more and 128 or less")
   return;
