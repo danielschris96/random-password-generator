@@ -11,6 +11,7 @@ var uppercasePrompt = false;
 var lowercasePrompt = false;
 var numbersPrompt = false;
 var specialCharactersPrompt = false;
+var randomPassword = "";
 
 function generatePassword() {
   passwordLength = prompt("How many characters do you want your password to be? (Min: 8, Max: 128)");
@@ -40,18 +41,23 @@ function generatePassword() {
     if (specialCharactersPrompt) {
       availableCharacters.push(...specialCharacters);
     }
-    
+   passwordRandomizer()
   }
   }
 }
 
-
+function passwordRandomizer() {
+  for (let i = 0; i < passwordLength; i++) {
+    randomPosition = (Math.floor(Math.random() * availableCharacters.length));
+    randomPassword = randomPassword + availableCharacters[randomPosition];
+  }
+}
 
 
 // Write password to the #password input
 function writePassword() {
   generatePassword();
-  var password = availableCharacters
+  var password = randomPassword
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
